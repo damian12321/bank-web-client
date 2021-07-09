@@ -14,32 +14,35 @@
         <div class="title">Register</div>
         <form action="#">
             <div class="field">
-                <input type="text" required>
+                <input type="text" required id="firstName">
                 <label>First name</label>
             </div>
             <div class="field">
-                <input type="text" required>
+                <input type="text" required id="lastName">
                 <label>Last name</label>
             </div>
             <div class="field">
-                <input type="password" required>
+                <input type="password" required id="password">
                 <label>Password</label>
             </div>
             <div class="field">
-                <input type="password" required>
+                <input type="password" required id="passwordConfirm">
                 <label>Confirm password</label>
             </div>
+            <p1 id="passwordError">Password doesn't match</p1>
             <div class="field">
-                <input type="password" required>
+                <input type="password" required id="pinNumber">
                 <label>Pin number</label>
             </div>
             <div class="field">
-                <input type="password" required>
+                <input type="password" required id="pinNumberConfirm">
                 <label>Confirm pin number</label>
             </div>
+            <p1 id="pinNumberError">Pin number doesn't match</p1>
             <div class="field">
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" id="submitButton">
             </div>
+
             <div class="back-link"><a href="./index.html">Back</a></div>
         </form>
     </div>
