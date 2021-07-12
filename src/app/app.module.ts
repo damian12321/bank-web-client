@@ -8,13 +8,15 @@ import {FormsModule} from "@angular/forms";
 import {AppRoutingModule} from "./app-routing.module";
 import {HttpClientModule} from "@angular/common/http";
 import {PageNotFoundComponent} from "./pages/page-not-found/page-not-found.component";
+import { NumericDirective } from './numeric.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NumericDirective
   ],
   imports: [
     BrowserModule,

@@ -1,21 +1,34 @@
-<body>
-<div class="wrapper">
-  <div class="title">Welcome in Damian's Bank.<br>
-    Please login</div>
-  <div class="form">
-    <div class="field">
-      <input type="text" required>
-      <label>Customer id</label>
+<div class="container">
+  <div class="screen">
+    <div class="screen__content">
+      <div class="title">
+        Welcome in Damian's Bank.
+        <br>Please login
+      </div>
+      <form class="login">
+        <div class="login__field">
+          <i class="login__icon fas fa-user"></i>
+          <input type="text" class="login__input" placeholder="Customer Id">
+        </div>
+        <div class="login__field">
+          <i class="login__icon fas fa-lock"></i>
+          <input type="password" class="login__input" placeholder="Password">
+        </div>
+        <button class="button login__submit">
+          <span class="button__text">Log In Now</span>
+          <i class="button__icon fas fa-chevron-right"></i>
+        </button>
+        <button class="button login__submit" routerLink="/register">
+          <span class="button__text">Register now</span>
+          <i class="button__icon fas fa-chevron-right"></i>
+        </button>
+      </form>
     </div>
-    <div class="field">
-      <input type="password" required>
-      <label>Password</label>
+    <div class="screen__background">
+      <span class="screen__background__shape screen__background__shape4"></span>
+      <span class="screen__background__shape screen__background__shape3"></span>
+      <span class="screen__background__shape screen__background__shape2"></span>
+      <span class="screen__background__shape screen__background__shape1"></span>
     </div>
-    <div class="field">
-      <input type="submit" value="Login" id="submitButton">
-    </div>
-    <div class="signup-link"><a href="./registerForm.html">Register now</a></div>
   </div>
 </div>
-</body>
-

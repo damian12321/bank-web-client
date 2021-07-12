@@ -1,51 +1,50 @@
-<!DOCTYPE html>
-<!-- Created By CodingLab - www.codinglabweb.com -->
-<html lang="en" dir="ltr">
-
-<head>
-  <title>Damian Bank</title>
-  <meta charset="utf-8">
-  <!----<title>Login Form Design | CodeLab</title>---->
-</head>
-
-<body>
-<div class="wrapper">
-  <div class="title">Register</div>
-  <div class="form">
-    <div class="field">
-      <input type="text" id="firstName" required>
-      <label>First name</label>
+<div class="container">
+  <div class="screen">
+    <div class="screen__content">
+      <form class="login">
+        <div class="login__field">
+          <i class="login__icon fas fa-user"></i>
+          <input type="text" class="login__input" placeholder="First Name">
+        </div>
+        <div class="login__field">
+          <i class="login__icon fas fa-user"></i>
+          <input type="text" class="login__input" placeholder="Last Name">
+        </div>
+        <div class="login__field">
+          <i class="login__icon fas fa-user"></i>
+          <input type="email" class="login__input" placeholder="Email">
+        </div>
+        <div class="login__field">
+          <i class="login__icon fas fa-user"></i>
+          <input type="email" class="login__input" placeholder="Password">
+        </div>
+        <div class="login__field">
+          <i class="login__icon fas fa-lock"></i>
+          <input type="password" class="login__input" placeholder="Confirm Password">
+        </div>
+        <div class="login__field">
+          <i class="login__icon fas fa-lock"></i>
+          <input numeric type="password" class="login__input" placeholder="Pin Number">
+        </div>
+        <div class="login__field">
+          <i class="login__icon fas fa-lock"></i>
+          <input numeric type="password" class="login__input" placeholder="Confirm Pin Number">
+        </div>
+        <button class="button login__submit">
+          <span class="button__text">Register</span>
+          <i class="button__icon fas fa-chevron-right"></i>
+        </button>
+        <button class="button login__submit" routerLink="/login">
+          <span class="button__text">Back</span>
+          <i class="button__icon fas fa-chevron-right"></i>
+        </button>
+      </form>
     </div>
-    <div class="field">
-      <input type="text" id="lastName" required>
-      <label>Last name</label>
+    <div class="screen__background">
+      <span class="screen__background__shape screen__background__shape4"></span>
+      <span class="screen__background__shape screen__background__shape3"></span>
+      <span class="screen__background__shape screen__background__shape2"></span>
+      <span class="screen__background__shape screen__background__shape1"></span>
     </div>
-    <div class="field">
-      <input type="password" id="password" required>
-      <label>Password</label>
-    </div>
-    <div class="field">
-      <input type="password" id="passwordConfirm" required>
-      <label>Confirm password</label>
-    </div>
-
-    <div class="field">
-      <input type="password" id="pinNumber" required/>
-      <label>Pin number</label>
-    </div>
-    <div class="field">
-      <input type="password" id="pinNumberConfirm" required/>
-      <label>Confirm pin number</label>
-    </div>
-
-    <div class="field">
-      <input type="submit" value="Submit" id="submitButton">
-    </div>
-
-    <div class="back-link"><a href="../../../../index.html">Back</a></div>
   </div>
 </div>
-
-</body>
-
-</html>

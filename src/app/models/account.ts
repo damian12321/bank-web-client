@@ -1,14 +1,15 @@
 import {Transaction} from "./transaction";
 
 export interface Account {
-  id?: string;
+  id?: number;
   firstName: string;
   lastName: string;
-  accountNumber: string;
+  email:string;
+  accountNumber: number;
   password: string;
-  pinNumber: string;
-  balance: string;
-  loginAttempts: string;
-  isActive: string;
+  pinNumber: number;
+  balance: number;
+  loginAttempts: number;
+  isActive: boolean;
   transactionList:Transaction[];
 }
