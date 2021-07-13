@@ -1,44 +1,83 @@
 <div class="container">
   <div class="screen">
     <div class="screen__content">
-      <form class="login">
-        <div class="login__field">
-          <i class="login__icon fas fa-user"></i>
-          <input type="text" class="login__input" placeholder="First Name">
+      <form class="register" (ngSubmit)="send()" #form="ngForm">
+        <div class="register__field">
+          <i class="register__icon fas fa-user"></i>
+          <input type="text" name="firstName" class="register__input" placeholder="First Name" [(ngModel)]="model.firstName" #firstName="ngModel" required  minlength="2"/>
         </div>
-        <div class="login__field">
-          <i class="login__icon fas fa-user"></i>
-          <input type="text" class="login__input" placeholder="Last Name">
+        <ng-container *ngIf="firstName.invalid && firstName.touched">
+          <div class="error" *ngIf="firstName.errors?.required">
+            Field required
+          </div>
+          <div class="error" *ngIf="firstName.errors?.minlength">
+            Text is too short
+          </div>
+        </ng-container>
+        <div class="register__field">
+          <i class="register__icon fas fa-user"></i>
+          <input type="text" name="lastName" class="register__input" placeholder="Last Name" [(ngModel)]="model.lastName" #lastName="ngModel" required minlength="2"/>
         </div>
-        <div class="login__field">
-          <i class="login__icon fas fa-user"></i>
-          <input type="email" class="login__input" placeholder="Email">
+        <ng-container *ngIf="lastName.invalid && lastName.touched">
+          <div class="error" *ngIf="lastName.errors?.required">
+            Field required
+          </div>
+          <div class="error" *ngIf="lastName.errors?.minlength">
+            Text is too short
+          </div>
+        </ng-container>
+        <div class="register__field">
+          <i class="register__icon fas fa-user"></i>
+          <input type="email" email name="email" class="register__input" placeholder="Email" [(ngModel)]="model.email" required>
         </div>
-        <div class="login__field">
-          <i class="login__icon fas fa-user"></i>
-          <input type="email" class="login__input" placeholder="Password">
+        <div class="register__field">
+          <i class="register__icon fas fa-user"></i>
+          <input type="password" name="password" class="register__input" placeholder="Password" [(ngModel)]="model.password" #password="ngModel" required minlength="4">
         </div>
-        <div class="login__field">
-          <i class="login__icon fas fa-lock"></i>
-          <input type="password" class="login__input" placeholder="Confirm Password">
+        <ng-container *ngIf="password.invalid && password.touched">
+          <div class="error" *ngIf="password.errors?.required">
+            Field required
+          </div>
+          <div class="error" *ngIf="password.errors?.minlength">
+            Text is too short
+          </div>
+        </ng-container>
+        <div class="register__field">
+          <i class="register__icon fas fa-lock"></i>
+          <input type="password" name="confirmPassword" class="register__input" placeholder="Confirm Password" [(ngModel)]="confirmPassword" required minlength="4">
         </div>
-        <div class="login__field">
-          <i class="login__icon fas fa-lock"></i>
-          <input numeric type="password" class="login__input" placeholder="Pin Number">
+        <div class="register__field">
+          <i class="register__icon fas fa-lock"></i>
+          <input numeric type="password" name="pinNumber" class="register__input" placeholder="Pin Number" [(ngModel)]="model.pinNumber" #pinNumber="ngModel" required minlength="4">
         </div>
-        <div class="login__field">
-          <i class="login__icon fas fa-lock"></i>
-          <input numeric type="password" class="login__input" placeholder="Confirm Pin Number">
+        <ng-container *ngIf="pinNumber.invalid && pinNumber.touched">
+          <div class="error" *ngIf="pinNumber.errors?.required">
+            Field required
+          </div>
+          <div class="error" *ngIf="pinNumber.errors?.minlength">
+            Text is too short
+          </div>
+        </ng-container>
+        <div class="register__field">
+          <i class="register__icon fas fa-lock"></i>
+          <input numeric type="password" name="pinNumberConfirm" class="register__input" placeholder="Confirm Pin Number" [(ngModel)]="confirmPinNumber" required minlength="4">
         </div>
-        <button class="button login__submit">
-          <span class="button__text">Register</span>
-          <i class="button__icon fas fa-chevron-right"></i>
-        </button>
-        <button class="button login__submit" routerLink="/login">
-          <span class="button__text">Back</span>
+        <ng-container *ngIf="!pinNumbersEqual">
+          <div class="error" *ngIf="!pinNumbersEqual">
+            Pin numbers do not match
+          </div>
+        </ng-container>
+        <button class="button register__submit" [disabled]="form.invalid" *ngIf="!isRegistered&&!isError">
+          <span class="button__text" >Register</span>
           <i class="button__icon fas fa-chevron-right"></i>
         </button>
       </form>
+      <div class="alert-box error" *ngIf="isError"><span>error: </span>{{textMessage}}</div>
+      <div class="alert-box success" *ngIf="isRegistered"><span>success: </span> {{textMessage}}</div>
+      <button class="button register__back" routerLink="/login">
+        <span class="button__text">Back</span>
+        <i class="button__icon fas fa-chevron-right"></i>
+      </button>
     </div>
     <div class="screen__background">
       <span class="screen__background__shape screen__background__shape4"></span>

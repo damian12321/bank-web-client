@@ -9,6 +9,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import {HttpClientModule} from "@angular/common/http";
 import {PageNotFoundComponent} from "./pages/page-not-found/page-not-found.component";
 import { NumericDirective } from './numeric.directive';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { NumericDirective } from './numeric.directive';
   ],
   imports: [
     BrowserModule,
-    FormsModule,AppRoutingModule,HttpClientModule
+    FormsModule,AppRoutingModule,HttpClientModule,NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

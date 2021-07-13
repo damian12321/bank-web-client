@@ -5,11 +5,11 @@ export interface Account {
   firstName: string;
   lastName: string;
   email:string;
-  accountNumber: number;
+  accountNumber?: number;
   password: string;
   pinNumber: number;
-  balance: number;
-  loginAttempts: number;
-  isActive: boolean;
-  transactionList:Transaction[];
+  balance?: number;
+  loginAttempts?: number;
+  isActive?: boolean;
+  transactionList?:Transaction[];
 }
