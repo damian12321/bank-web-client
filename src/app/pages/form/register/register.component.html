@@ -67,14 +67,14 @@
             Pin numbers do not match
           </div>
         </ng-container>
-        <button class="button register__submit" [disabled]="form.invalid" *ngIf="!isRegistered&&!isError">
+        <button type="submit" class="button register__submit" [disabled]="form.invalid" *ngIf="!isRegistered&&!isError">
           <span class="button__text" >Register</span>
           <i class="button__icon fas fa-chevron-right"></i>
         </button>
       </form>
       <div class="alert-box error" *ngIf="isError"><span>error: </span>{{textMessage}}</div>
       <div class="alert-box success" *ngIf="isRegistered"><span>success: </span> {{textMessage}}</div>
-      <button class="button register__back" routerLink="/login">
+      <button type="submit" class="button register__back" routerLink="/login">
         <span class="button__text">Back</span>
         <i class="button__icon fas fa-chevron-right"></i>
       </button>

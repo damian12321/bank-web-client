@@ -1,37 +1,24 @@
 import {Injectable} from '@angular/core';
 import {
   HttpClient,
-  HttpErrorResponse,
-  HttpHeaders,
-  HttpParams,
-  HttpResponse,
 } from '@angular/common/http';
-import {Observable, throwError} from 'rxjs';
-import {catchError, tap} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 import {Account} from "../models/account";
 
 @Injectable({
   providedIn: 'root',
 })
 export class HttpAccountsService {
-  private url = 'http://localhost:8080/api/accounts';
+  private url = 'http://localhost:8080/api/accounts/';
 
   constructor(private http: HttpClient) {
   }
 
-  getAccount(): Observable<Account> {
-    return this.http.get<Account>(this.url,{ observe: 'response' }).pipe(tap(console.log), catchError(this.handleError));
+  getAccount(id:number|undefined,password:string): Observable<Account> {
+    return this.http.get<Account>(this.url+id+'/'+password);
   }
   postAccount(account: Account): Observable<Account> {
-    return this.http.post<Account>(this.url, account).pipe(tap(console.log), catchError(this.handleError));
+    return this.http.post<Account>(this.url, account);
   }
 
-  private handleError(error: HttpErrorResponse): Observable<never> {
-    console.error(
-      `Name: ${error.name} \n` +
-      `Message: ${error.message} \n` +
-      `Returned code: ${error.status} \n`
-    );
-    return throwError('Something bad happened; please try again later.');
-  }
 }

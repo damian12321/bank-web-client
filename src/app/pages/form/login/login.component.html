@@ -5,24 +5,29 @@
         Welcome in Damian's Bank.
         <br>Please login
       </div>
-      <form class="login">
+      <form class="login" (ngSubmit)="login()" #form="ngForm">
         <div class="login__field">
           <i class="login__icon fas fa-user"></i>
-          <input type="text" class="login__input" placeholder="Customer Id">
+          <input type="text" name="id" class="login__input" placeholder="Customer Id" [(ngModel)]="id" required>
         </div>
         <div class="login__field">
           <i class="login__icon fas fa-lock"></i>
-          <input type="password" class="login__input" placeholder="Password">
+          <input type="password" name="password" class="login__input" placeholder="Password" [(ngModel)]="password" required>
         </div>
-        <button class="button login__submit">
+        <ng-container *ngIf="isError">
+          <div class="error" *ngIf="isError">
+            {{textMessage}}
+          </div>
+        </ng-container>
+        <button type="submit" class="button login__submit" [disabled]="form.invalid">
           <span class="button__text">Log In Now</span>
           <i class="button__icon fas fa-chevron-right"></i>
         </button>
-        <button class="button login__submit" routerLink="/register">
-          <span class="button__text">Register now</span>
-          <i class="button__icon fas fa-chevron-right"></i>
-        </button>
       </form>
+      <button type="submit" class="button to__register" routerLink="/register">
+        <span class="button__text">Register now</span>
+        <i class="button__icon fas fa-chevron-right"></i>
+      </button>
     </div>
     <div class="screen__background">
       <span class="screen__background__shape screen__background__shape4"></span>

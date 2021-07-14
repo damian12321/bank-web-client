@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {Account} from "../../../models/account";
 import {HttpAccountsService} from "../../../services/http-accounts.service";
 
@@ -33,7 +33,7 @@ export class RegisterComponent {
             this.textMessage = 'Your account has been succesfully created.\nYour customer id is ' + result.id + '. Use this number to log in to your account.'
         },
         error => {
-          console.error(error), this.textMessage = 'Something bad happened; please try again later.', this.isError = true
+          console.error(error), this.textMessage = 'An account with this email already exists.', this.isError = true
         }
       );
     }
