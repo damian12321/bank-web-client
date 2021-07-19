@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Account} from "../../../models/account";
 import {HttpAccountsService} from "../../../services/http-accounts.service";
+import {NgbModal, NgbModalConfig} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,9 @@ export class RegisterComponent {
   textMessage: string = '';
 
 
-  constructor(private http: HttpAccountsService) {
+  constructor(private http: HttpAccountsService,config: NgbModalConfig, private modalService: NgbModal) {
+    config.backdrop = 'static';
+    config.keyboard = false;
   }
 
   send() {
@@ -30,7 +33,7 @@ export class RegisterComponent {
         result => {
           console.log(result);
           this.isRegistered = true, this.createdAccount = result,
-            this.textMessage = 'Your account has been succesfully created.\nYour customer id is ' + result.id + '. Use this number to log in to your account.'
+            this.textMessage = 'Your account has been succesfully created.\n<b>Your customer id is ' + result.id + '. Use this number to log in to your account.</b>'
         },
         error => {
           console.error(error), this.textMessage = 'An account with this email already exists.', this.isError = true

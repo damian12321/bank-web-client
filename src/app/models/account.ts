@@ -6,8 +6,8 @@ export interface Account {
   lastName: string;
   email:string;
   accountNumber?: number;
-  password: string;
-  pinNumber: number;
+  password?: string;
+  pinNumber?: number;
   balance?: number;
   loginAttempts?: number;
   isActive?: boolean;

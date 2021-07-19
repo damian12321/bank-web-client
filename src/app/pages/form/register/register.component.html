@@ -73,7 +73,7 @@
         </button>
       </form>
       <div class="alert-box error" *ngIf="isError"><span>error: </span>{{textMessage}}</div>
-      <div class="alert-box success" *ngIf="isRegistered"><span>success: </span> {{textMessage}}</div>
+      <div class="alert-box success" *ngIf="isRegistered" [innerHTML]="'<span>Success: </span>'+textMessage"></div>
       <button type="submit" class="button register__back" routerLink="/login">
         <span class="button__text">Back</span>
         <i class="button__icon fas fa-chevron-right"></i>

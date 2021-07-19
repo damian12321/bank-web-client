@@ -1,15 +1,24 @@
 <div class="container">
   <div class="screen">
-    <div class="left-menu">
-      <div class="content">
-        Account info
+    <app-nav></app-nav>
+      <div class="right-menu">
+        <div class="customer-details">
+          Customer id: {{account.id}}
+          <br>
+          {{account.email}}
+        </div>
+        <div class="personal-data">
+          {{account.firstName}} {{account.lastName}}
+        </div>
+        <div class="account-info">
+          Account info
+          <div>
+            Account number: <br><b>{{account.accountNumber}}</b>
+          </div>
+          <div>
+            Account balance: <br><b>{{account.balance|number:'1.2-2'}} zł</b>
+          </div>
       </div>
-      <div class="content">
-        Change personal info
-      </div>
-      <div class="content">
-        Change password
       </div>
     </div>
-  </div>
 </div>

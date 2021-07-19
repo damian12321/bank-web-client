@@ -12,6 +12,7 @@ import {NumericDirective} from './numeric.directive';
 import {AuthModule} from "@auth0/auth0-angular";
 import {AccountInfoComponent} from './pages/account-info/account-info.component';
 import { LogoutComponent } from './pages/form/logout/logout.component';
+import { NavComponent } from './pages/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { LogoutComponent } from './pages/form/logout/logout.component';
     NumericDirective,
     AccountInfoComponent,
     LogoutComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,

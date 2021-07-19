@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Account} from "../../models/account";
+
 import {AuthenticationService} from "../../services/authentication.service";
+import {Router} from "@angular/router";
+import {Account} from "../../models/account";
 
 @Component({
   selector: 'app-account-info',
@@ -8,33 +10,18 @@ import {AuthenticationService} from "../../services/authentication.service";
   styleUrls: ['./account-info.component.css']
 })
 export class AccountInfoComponent implements OnInit {
-  account: Account = {
-    accountNumber: 0,
-    balance: 0,
-    email: "",
-    firstName: "",
-    id: 0,
-    isActive: false,
-    lastName: "",
-    loginAttempts: 0,
-    password: "",
-    pinNumber: 0,
-    transactionList: []
-  };
 
-  constructor(private loginService:AuthenticationService) { }
+  constructor(private authenticationService:AuthenticationService,private router: Router) { }
 
   ngOnInit() {
 
   }
-
-  // ngOnInit(): void {
-    // if(this.sharedService.getAccount().id===undefined)
-    // {
-    //   this.router.navigate(['/logout'])
-    //   return;
-    // }
-  //   this.account=this.sharedService.getAccount();
-  // }
-
+account:Account={
+  accountNumber: 200,
+  balance: 5000.48,
+  email: "damianjurus@wp.pl",
+  firstName: "Damian",
+  id: 5,
+  lastName: "Juruś"
+}
 }
