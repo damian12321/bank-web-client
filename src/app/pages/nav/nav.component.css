@@ -1,21 +1,34 @@
-.left-menu{
+.left-menu {
   display: block;
   width: 220px;
   height: 100%;
-  background: linear-gradient(90deg, rgba(254,254,254,1) 0%, rgba(92,86,150,1) 100%);
+  background: #5D54A4;
+  color: white;
 }
-.left-menu .menu-content{
+
+.left-menu .menu-content {
   text-align: center;
-  height: 14.28%;
+  height: 12.5%;
   font-size: large;
   position: center;
   padding-top: 20%;
-  border: 2px solid #5C5696;
 }
-.left-menu .menu-content:hover{
-  background: linear-gradient(90deg, rgba(254,254,254,1) 0%, rgba(72,66,120,1) 100%);
+
+.left-menu .menu-content:hover {
+  color: #7875B5;
   cursor: pointer;
 }
-.left-menu{
-  float:left;
+
+.left-menu {
+  float: left;
+}
+
+.logo {
+  text-align: center;
+  height: 12.5%;
+  font-size: large;
+  position: center;
+  padding-top: 10%;
+  cursor: default;
+  border-bottom: 1px #4C43A3 solid;
 }

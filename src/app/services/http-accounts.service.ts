@@ -4,6 +4,7 @@ import {
 } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Account} from "../models/account";
+import {Transaction} from "../models/transaction";
 
 @Injectable({
   providedIn: 'root',
@@ -20,5 +21,7 @@ export class HttpAccountsService {
   postAccount(account: Account): Observable<Account> {
     return this.http.post<Account>(this.url, account);
   }
-
+  getTransactions(id:number|undefined,password:string): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(this.url+id+'/'+password+'/transactions');
+  }
 }

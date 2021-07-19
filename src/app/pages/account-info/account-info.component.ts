@@ -3,6 +3,9 @@ import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../../services/authentication.service";
 import {Router} from "@angular/router";
 import {Account} from "../../models/account";
+import {Transaction} from "../../models/transaction";
+import {HttpAccountsService} from "../../services/http-accounts.service";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-account-info',
@@ -11,17 +14,18 @@ import {Account} from "../../models/account";
 })
 export class AccountInfoComponent implements OnInit {
 
-  constructor(private authenticationService:AuthenticationService,private router: Router) { }
+  constructor(private router: Router, private http: HttpAccountsService, private authService: AuthenticationService) {
+  }
+
+  account: Account = {email: "", firstName: "", lastName: ""};
+  transactions: Transaction[] = [];
 
   ngOnInit() {
-
+    this.account = JSON.parse(<string>sessionStorage.getItem('account'));
+    this.http.getTransactions(this.account?.id, this.authService.getPassword()).subscribe((data) => {
+      this.transactions=data;data.forEach((trans)=>trans.date=new Date());
+    })
   }
-account:Account={
-  accountNumber: 200,
-  balance: 5000.48,
-  email: "damianjurus@wp.pl",
-  firstName: "Damian",
-  id: 5,
-  lastName: "Juruś"
-}
+
+
 }
